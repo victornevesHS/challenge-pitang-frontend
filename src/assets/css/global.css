@@ -1,0 +1,11 @@
+.react-datepicker__input-container,
+.react-datepicker-wrapper {
+    width: 100% !important;
+}
+
+/* .form-agend {
+    position: relative;
+    width: 100%;
+    text-align: left;
+} */
+
