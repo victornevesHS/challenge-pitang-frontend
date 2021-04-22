@@ -3,6 +3,8 @@ import DateInput from '../DatePicker';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FormAgendSchema } from '../../Schema'
 import { reactbootstrap, Button } from 'react-bootstrap'
+import axios from '../../utils/api';
+import { toast } from 'react-toastify';
 
 
 
@@ -12,9 +14,21 @@ const initialValues = {
     selectedDate: null,
 } 
 
-const onSubmit = (values) => {
-    
-   return  console.log(values)
+const  onSubmit = async (values) => {
+    try{
+        const res = await axios.post ('/agendamento', {
+            name: values.name,
+            dataNascimento: values.dataNascimento,
+            selectedDate: values.selectedDate,
+        }).then(()=>{
+            toast.success('Agendamento Feito')
+        }
+        );
+
+    }catch (error) {
+        toast.error(error.response.data.message)
+    }
+   
 }
 
 const FormAgend = () => {
