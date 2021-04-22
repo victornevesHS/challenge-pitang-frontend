@@ -1,38 +1,30 @@
-import react, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
-import FormAgend from './components/FormAgend';
-
+import Navbar from './components/NavBar/index'
+import PaginaCadastro from './pages/cadastro';
 
 const routes = [
    { 
-    component: FormAgend,
+    component: PaginaCadastro,
     name: "Agendamento",
     path: "/agendamento"
    },
-
-
-  
 ]
 
 
 
 const Routes  = () => (
     <BrowserRouter>
+        <Navbar />
         <Switch>
-
-        {routes.map((route) => (
-            <Route
-                exact
-                key={route.path}
-                path={route.path}
-                component={route.component}
-            />
-      ))}
-            
-            
+            {routes.map((route) => (
+                <Route
+                    exact
+                    key={route.path}
+                    path={route.path}
+                    component={route.component}
+                />
+            ))}
         </Switch>
-
     </BrowserRouter>
 
 )

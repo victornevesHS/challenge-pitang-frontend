@@ -7,14 +7,16 @@ function DateInput (props) {
 
   
   return (
-    <div className="form-control">
-      <label htmlFor={name}>{label}</label>
+    <div className="form-group form-focus">
+      <label className="focus-label" htmlFor={name}>{label}</label>
       <Field name={name}>
         {({ form, field }) => {
           const { value } = field;
           const { setFieldValue } = form;
           return (
             <DatePicker
+              className="form-control floating"
+              autoComplete= "off"
               id={name}
               {...field}
               {...rest}
